@@ -8,11 +8,14 @@ import {
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { shades } from "../../theme";
+import { setIsCartOpen} from "../../state";
+
 
 const Navbar = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const cart = useSelector((state) => state.cart.cart);
     return(
         <Box display="flex" alignItems="center" width="100%" height={"70px"} backgroundColor="rgba(255, 255, 255, .90)"
             position={"fixed"} top="0" left="0" zIndex="1" >
@@ -27,7 +30,9 @@ const Navbar = () => {
                     <IconButton sx={{ color: "black" }}>
                         <PersonOutline/>
                     </IconButton>
-                    <IconButton sx={{ color: "black" }}>
+                    <IconButton 
+                    onClick={() => dispatch(setIsCartOpen({}))}
+                    sx={{ color: "black" }}>
                         <ShoppingBagOutlined/>
                     </IconButton>
                     <IconButton sx={{ color: "black" }}>
