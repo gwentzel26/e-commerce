@@ -25,9 +25,17 @@ export const cartSlice = createSlice({
                 if(item.id === action.payload.id) {
                     item.count++;
                 }
-                
-            })
-        }
+                return item;
+            });
+        },
+        decreaseCount: (state, action) => {
+            state.cart = state.cart.map((item) => {
+                if(item.id === action.payload.id) {
+                    item.count--;
+                }
+                return item;
+            });
+
     }
 })
 
