@@ -69,6 +69,8 @@ return (
                                         src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}` }
                                         />
                                     </Box>
+
+                                    {/* {ITEM NAME} */}
                                     <Box flex="1 1 60%">
                                         <FlexBox mb="5px">
                                             <Typography fontWeight="bold">
@@ -79,11 +81,18 @@ return (
                                             </IconButton>
                                         </FlexBox>
                                         <Typography>{item.attributes.shortDescription}</Typography>
+
+                                           {/* {AMOUNT}  */}
                                         <FlexBox m="15px 0">
                                             <Box
                                             display="flex"
                                             alignItems="center"
-                                            border={`1.5px solid ${shades.neutral[500]}`}>
+                                            border={`1.5px solid ${shades.neutral[500]}`}
+                                            >
+                                                <IconButton
+                                                onClick={() => dispatch(decreaseCount({ id: item.id }))}>
+                                                <RemoveIcon />
+                                                </IconButton>
                                                 
                                             </Box>
                                         </FlexBox>
