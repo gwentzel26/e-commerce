@@ -93,9 +93,16 @@ return (
                                                 onClick={() => dispatch(decreaseCount({ id: item.id }))}>
                                                 <RemoveIcon />
                                                 </IconButton>
-                                                
+                                                <Typography>{item.count}</Typography>
+                                                <IconButton
+                                                onClick={() => dispatch(increaseCount({ id: item.id }))}>
+                                                <AddIcon />
+                                                </IconButton>
                                             </Box>
                                         </FlexBox>
+
+                                        {/* {PRICE} */}
+                                        <Typography fontWeight="bold">${item.attributes.price}</Typography>
                                     </Box>
                                 </FlexBox>
                             </ Box>
