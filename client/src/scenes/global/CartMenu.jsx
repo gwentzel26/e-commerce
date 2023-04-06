@@ -4,8 +4,8 @@ import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import styled from "@emotion/styled";
-import shades from "../../theme";
-import state, { decreaseCount, increaseCount, setIsCartOpen, removeFromCart  } from "../state";
+import { shades } from "../../theme";
+import { decreaseCount, increaseCount, setIsCartOpen, removeFromCart  } from "../../state";
 import { useNavigate } from "react-router-dom";
 import ItemDetails from "../itemDetails/ItemDetails";
 
@@ -20,10 +20,11 @@ const CartMenu = () => {
     const dispatch = useDispatch();
     const cart = useSelector((state) => state.cart.cart);
     const isCartOpen = useSelector((state) => state.cart.isCartOpen);
+    
     const totalPrice = cart.reduce((total, item) => {
         return total + item.count * item.attributes.price;
     }, 0);
-}
+
 
 return (
     <Box // overlay
@@ -99,10 +100,12 @@ return (
                                                 <AddIcon />
                                                 </IconButton>
                                             </Box>
+
+                                            {/* {PRICE} */}
+                                        <Typography fontWeight="bold">${item.attributes.price}</Typography>
                                         </FlexBox>
 
-                                        {/* {PRICE} */}
-                                        <Typography fontWeight="bold">${item.attributes.price}</Typography>
+                                        
                                     </Box>
                                 </FlexBox>
                             </ Box>
@@ -112,7 +115,7 @@ return (
                     {/* ACTIONS */}
                     <Box m="20px 0">
                         <FlexBox m="20px 0">
-                            <Typography fontWeight="bold"><SUBTOTAL></SUBTOTAL></Typography>
+                            <Typography fontWeight="bold">SUBTOTAL</Typography>
                             <Typography fontWeight="bold">${totalPrice}</Typography>
                         </FlexBox>
                         <Button 
@@ -124,12 +127,15 @@ return (
                                 padding: "20px 40px",
                                 m: "20px 0"
                             }}
-                        >
-
-                        </Button>
+                            onClick={() => {
+                                navigate("/checkout")
+                                dispatch(setIsCartOpen({}))
+                            }}
+                        >CHECKOUT</Button>
                     </Box>
             </Box>
 
         </Box>
-)
+);
+};
 export default CartMenu;
