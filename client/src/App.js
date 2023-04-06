@@ -22,17 +22,15 @@ function App() {
     <div className="app">
       <BrowserRouter>
       <Navbar />
-        <ScrollToTop>
+        <ScrollToTop />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='item/:itemId' element={<ItemDetails />} />
             <Route path='checkout' element={<Checkout />} />
             <Route path='checkout/success' element={<Confirmation />} />
-
-           
           </Routes>
           <CartMenu />
-        </ScrollToTop>
+      
       
       </BrowserRouter>
       
