@@ -1,7 +1,7 @@
 import React, {useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Box, Typography, Tab, Tabs } from "@mui/material";
-import Item from "../../components/Item";
+import { Box, Typography, Tab, Tabs, useMediaQuery } from "@mui/material";
+import Item from "../../components/item";
 import { setItems } from '../../state';
 
 const ShoppingList = () => {
@@ -30,7 +30,26 @@ const ShoppingList = () => {
 
     }, [])
 
+    const topRatedItems = items.filter(
+        (item) => item.attributes.category === "topRated"
+    );
+    const newArrivalsItems = items.filter(
+        (item) => item.attributes.category === "newArrivals"
+    );
+    const bestSellersItems = items.filter(
+        (item) => item.attributes.category === "bestSellers"
+    );
+
+    return <Box width="80%" margin="80px auto">
+        <Typography variant="h3" textAlign="center">
+            Our Featured <b>Products</b>
+        </Typography>
+
+    </Box>
+
     return (
         <div>Shopping List</div>
     )
 };
+
+export default ShoppingList;

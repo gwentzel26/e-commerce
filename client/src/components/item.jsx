@@ -72,7 +72,7 @@ const Item = ({ item, width }) => {
                 dispatch(addToCart({ item: { ...item, count } }));
               }}
               sx={{ backgroundColor: shades.primary[300], color: "white" }}
-            > Add to <Cart></Cart></Button>
+            > Add to Cart</Button>
           </Box>
         </Box>
       </Box>
