@@ -38,7 +38,7 @@ const Navbar = () => {
           sx={{ "$:hover": { cursor: "pointer" } }}
           color={shades.secondary[500]}
         >
-          Ecommerce
+          Gavin Wentzel
         </Box>
         <Box
           display={"flex"}
