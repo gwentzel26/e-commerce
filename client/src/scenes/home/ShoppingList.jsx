@@ -45,7 +45,7 @@ const ShoppingList = () => {
         <Typography variant="h3" textAlign="center">
             Our Featured <b>Products</b>
         </Typography>
-        <Tabs textColor="primary"
+        <Tabs textColor="white[100]"
         indicatorColor="primary"
         value={value}
         onChange={handleChange}

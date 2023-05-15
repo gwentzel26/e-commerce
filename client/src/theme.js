@@ -14,7 +14,7 @@ export const shades = {
     },
     
     secondary:{
-        100: "#f7ccd2",
+        100: "#d6ae7b",
         200: "#ef99a4",
         300: "#e66677",
         400: "#de3349",
@@ -35,7 +35,7 @@ export const shades = {
         700: "#7c7b7b",
         800: "#535252",
         900: "#292929"
-    } 
+    }
 }
 
 export const theme = createTheme({
@@ -66,10 +66,7 @@ export const theme = createTheme({
         h3: {
         fontFamily: ["Cinzel", "sans-serif"].join(""),
         fontSize: 20,
-        },
-        h3: {
-        fontFamily: ["Cinzel", "sans-serif"].join(""),
-        fontSize: 14,
+        color: 'white',
         }
     }
 })

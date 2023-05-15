@@ -9,6 +9,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { shades } from "../../theme";
 import { setIsCartOpen } from "../../state";
+import "../../css/Navbar.css";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -20,7 +21,8 @@ const Navbar = () => {
       alignItems="center"
       width="100%"
       height={"70px"}
-      backgroundColor="rgba(255, 255, 255, .90)"
+      className="navColor"
+      opacity=".9"
       position={"fixed"}
       top="0"
       left="0"
@@ -36,7 +38,8 @@ const Navbar = () => {
         <Box
           onClick={() => navigate("/")}
           sx={{ "$:hover": { cursor: "pointer" } }}
-          color={shades.secondary[500]}
+          color={shades.secondary[100]}
+          fontSize="24px"
         >
           Gavin Wentzel
         </Box>
@@ -53,16 +56,19 @@ const Navbar = () => {
             <PersonOutline />
           </IconButton>
           <Badge
-          badgeContent={cart.length}
-          color="secondary"
-          invisible={cart.length === 0}
-          sx={{"& .MuiBadge-badge": {
-            right: 5,
-            top: 5,
-            padding: "0 4px",
-            height: "14px",
-            minWidth: "13"
-          }}}>
+            badgeContent={cart.length}
+            color="secondary"
+            invisible={cart.length === 0}
+            sx={{
+              "& .MuiBadge-badge": {
+                right: 5,
+                top: 5,
+                padding: "0 4px",
+                height: "14px",
+                minWidth: "13",
+              },
+            }}
+          >
             <IconButton
               onClick={() => dispatch(setIsCartOpen({}))}
               sx={{ color: "black" }}
